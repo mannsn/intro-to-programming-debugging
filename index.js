@@ -10,7 +10,9 @@ const correctMessage = document.getElementById('correct');
 
 let targetNumber;
 let attempts = 0;
-const maxNumberOfAttempts = 5;
+//third bug (was const I did let)
+let maxNumberOfAttempts = 5;
+
 
 // Returns a random number from min (inclusive) to max (exclusive)
 // Usage:
@@ -18,9 +20,19 @@ const maxNumberOfAttempts = 5;
 // <- 32
 // > getRandomNumber(1, 50)
 // <- 11
+
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+//eigth bug. Firstly we have to declare function and then call it.
+function hideAllMessages() {
+  //fourth bug (I added "-1")
+  for (let elementIndex = 0; elementIndex <= messages.length - 1; elementIndex++) {
+    messages[elementIndex].style.display = "none";
+  }
+}
+
 
 function checkGuess() {
   // Get value from guess input element
@@ -43,7 +55,8 @@ function checkGuess() {
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
     } else {
-      tooLowMessage.style.display = '';
+      //fifth bug (both were "tooLowMessage.style.display")
+      tooHighMessage.style.display = '';
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
@@ -51,8 +64,8 @@ function checkGuess() {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
-
-  if (attempts ==== maxNumberOfAttempts) {
+//first bug
+  if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
@@ -62,22 +75,20 @@ function checkGuess() {
   resetButton.style.display = '';
 }
 
-function hideAllMessages() {
-  for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
-    messages[elementIndex].style.display = 'none';
-  }
-}
 
-funtion setup() {
+//second bug (misspelling "function")
+function setup() {
   // Get random number
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 0;
+  //sixth bug (was "0" I did "5")
+  maxNumberOfAttempts = 5;
 
   // Enable the input and submit button
-  submitButton.disabeld = false;
+  //seventh bug (was "disabeld" I did "disabled")
+  submitButton.disabled = false;
   guessInput.disabled = false;
 
   hideAllMessages();
