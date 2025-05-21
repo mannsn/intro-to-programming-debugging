@@ -33,6 +33,7 @@ function hideAllMessages() {
   }
 }
 
+//make a change
 
 function checkGuess() {
   // Get value from guess input element
