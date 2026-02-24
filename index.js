@@ -10,7 +10,7 @@ const correctMessage = document.getElementById("correct");
 
 let targetNumber;
 let attempts = 0;
-//BUG 3: change const to let;
+//Error 3: change const to let;
 let maxNumberOfAttempts = 5;
 
 // Returns a random number from min (inclusive) to max (exclusive)
